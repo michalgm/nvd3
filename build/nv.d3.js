@@ -6338,8 +6338,8 @@ nv.models.lineChart = function() {
 
                 var xValue = xAxis.tickFormat()(chart.x()(singlePoint,pointIndex));
                 interactiveLayer.tooltip
-                    .position({left: e.mouseX + margin.left, top: e.mouseY + margin.top})
-                    .chartContainer(that.parentNode)
+                    .position({left: d3.mouse(document.body)[0], top: d3.mouse(document.body)[1]})
+                    .chartContainer(document.body)
                     .valueFormatter(function(d,i) {
                         return d == null ? "N/A" : yAxis.tickFormat()(d);
                     })
